@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\kevin\\source\\repos\\TareaBD\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{73C925F0-90DB-4372-9080-6582A7455229}|TareaBD\\TareaBD.csproj|C:\\Users\\kevin\\source\\repos\\TareaBD\\tareabd\\tareabd.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{73C925F0-90DB-4372-9080-6582A7455229}|TareaBD\\TareaBD.csproj|solutionrelative:tareabd\\tareabd.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73C925F0-90DB-4372-9080-6582A7455229}|TareaBD\\TareaBD.csproj|c:\\users\\kevin\\source\\repos\\tareabd\\tareabd\\util\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73C925F0-90DB-4372-9080-6582A7455229}|TareaBD\\TareaBD.csproj|solutionrelative:tareabd\\util\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73C925F0-90DB-4372-9080-6582A7455229}|TareaBD\\TareaBD.csproj|c:\\users\\kevin\\source\\repos\\tareabd\\tareabd\\bd\\empleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73C925F0-90DB-4372-9080-6582A7455229}|TareaBD\\TareaBD.csproj|solutionrelative:tareabd\\bd\\empleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73C925F0-90DB-4372-9080-6582A7455229}|TareaBD\\TareaBD.csproj|c:\\users\\kevin\\source\\repos\\tareabd\\tareabd\\model\\dbempleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73C925F0-90DB-4372-9080-6582A7455229}|TareaBD\\TareaBD.csproj|solutionrelative:tareabd\\model\\dbempleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73C925F0-90DB-4372-9080-6582A7455229}|TareaBD\\TareaBD.csproj|C:\\Users\\kevin\\source\\repos\\TareaBD\\tareabd\\site.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
+      "RelativeMoniker": "D:0:0:{73C925F0-90DB-4372-9080-6582A7455229}|TareaBD\\TareaBD.csproj|solutionrelative:tareabd\\site.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73C925F0-90DB-4372-9080-6582A7455229}|TareaBD\\TareaBD.csproj|C:\\Users\\kevin\\source\\repos\\TareaBD\\tareabd\\tareabd.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73C925F0-90DB-4372-9080-6582A7455229}|TareaBD\\TareaBD.csproj|solutionrelative:tareabd\\tareabd.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DBEmpleado.cs",
+              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\TareaBD\\TareaBD\\Model\\DBEmpleado.cs",
+              "RelativeDocumentMoniker": "TareaBD\\Model\\DBEmpleado.cs",
+              "ToolTip": "C:\\Users\\kevin\\source\\repos\\TareaBD\\TareaBD\\Model\\DBEmpleado.cs",
+              "RelativeToolTip": "TareaBD\\Model\\DBEmpleado.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-28T16:52:16.5Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Empleado.cs",
+              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\TareaBD\\TareaBD\\BD\\Empleado.cs",
+              "RelativeDocumentMoniker": "TareaBD\\BD\\Empleado.cs",
+              "ToolTip": "C:\\Users\\kevin\\source\\repos\\TareaBD\\TareaBD\\BD\\Empleado.cs",
+              "RelativeToolTip": "TareaBD\\BD\\Empleado.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-28T16:51:36.608Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Site.Master",
+              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\TareaBD\\TareaBD\\Site.Master",
+              "RelativeDocumentMoniker": "TareaBD\\Site.Master",
+              "ToolTip": "C:\\Users\\kevin\\source\\repos\\TareaBD\\TareaBD\\Site.Master",
+              "RelativeToolTip": "TareaBD\\Site.Master",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-02-20T00:45:59.981Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TareaBD.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\TareaBD\\TareaBD\\TareaBD.aspx.cs",
+              "RelativeDocumentMoniker": "TareaBD\\TareaBD.aspx.cs",
+              "ToolTip": "C:\\Users\\kevin\\source\\repos\\TareaBD\\TareaBD\\TareaBD.aspx.cs",
+              "RelativeToolTip": "TareaBD\\TareaBD.aspx.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-20T00:45:53.513Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TareaBD.aspx",
+              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\TareaBD\\TareaBD\\TareaBD.aspx",
+              "RelativeDocumentMoniker": "TareaBD\\TareaBD.aspx",
+              "ToolTip": "C:\\Users\\kevin\\source\\repos\\TareaBD\\TareaBD\\TareaBD.aspx*",
+              "RelativeToolTip": "TareaBD\\TareaBD.aspx*",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-02-19T23:38:02.649Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Utils.cs",
+              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\TareaBD\\TareaBD\\Util\\Utils.cs",
+              "RelativeDocumentMoniker": "TareaBD\\Util\\Utils.cs",
+              "ToolTip": "C:\\Users\\kevin\\source\\repos\\TareaBD\\TareaBD\\Util\\Utils.cs",
+              "RelativeToolTip": "TareaBD\\Util\\Utils.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-19T23:29:07.873Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
