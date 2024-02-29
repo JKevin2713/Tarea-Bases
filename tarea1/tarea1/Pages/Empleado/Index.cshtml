@@ -1,0 +1,28 @@
+﻿@page
+@model tarea1.Pages.Empleado.IndexModel
+@{
+}
+
+<br>
+<h2>Table de empleados</h2>
+<a class= 'btn btn-primary btn-sn' href='/Empleado/Create'> New Employee </a>
+<table class="tableEmpleyee">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Salario</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.listEmployee)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.Nombre</td>
+                <td>@item.Salario</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
