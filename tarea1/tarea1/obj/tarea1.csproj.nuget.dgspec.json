@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\duran\\OneDrive\\Escritorio\\SEMESTRE I 2024\\Bases\\tarea1\\tarea1\\tarea1.csproj": {}
+    "C:\\Users\\duran\\OneDrive\\Documents\\GitHub\\Tarea-Bases\\tarea1\\tarea1\\tarea1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\duran\\OneDrive\\Escritorio\\SEMESTRE I 2024\\Bases\\tarea1\\tarea1\\tarea1.csproj": {
+    "C:\\Users\\duran\\OneDrive\\Documents\\GitHub\\Tarea-Bases\\tarea1\\tarea1\\tarea1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\duran\\OneDrive\\Escritorio\\SEMESTRE I 2024\\Bases\\tarea1\\tarea1\\tarea1.csproj",
+        "projectUniqueName": "C:\\Users\\duran\\OneDrive\\Documents\\GitHub\\Tarea-Bases\\tarea1\\tarea1\\tarea1.csproj",
         "projectName": "tarea1",
-        "projectPath": "C:\\Users\\duran\\OneDrive\\Escritorio\\SEMESTRE I 2024\\Bases\\tarea1\\tarea1\\tarea1.csproj",
+        "projectPath": "C:\\Users\\duran\\OneDrive\\Documents\\GitHub\\Tarea-Bases\\tarea1\\tarea1\\tarea1.csproj",
         "packagesPath": "C:\\Users\\duran\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\duran\\OneDrive\\Escritorio\\SEMESTRE I 2024\\Bases\\tarea1\\tarea1\\obj\\",
+        "outputPath": "C:\\Users\\duran\\OneDrive\\Documents\\GitHub\\Tarea-Bases\\tarea1\\tarea1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\duran\\AppData\\Roaming\\NuGet\\NuGet.Config",

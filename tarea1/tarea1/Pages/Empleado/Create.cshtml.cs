@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics.CodeAnalysis;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -30,22 +31,31 @@ namespace tarea1.Pages.Empleado
             {
                 string connectionString = "Data Source=LAPTOP-K8CP12F2;Initial Catalog=tarea1" +
                                           ";Integrated Security=True;Encrypt=False";
+
+                SqlConnection sqlConnection = new SqlConnection(connectionString);
+                sqlConnection.Open();
+                SqlCommand command = new SqlCommand("registroEmpleado", sqlConnection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@nombre", info.Nombre);
+                command.Parameters.AddWithValue("@salario", info.Salario);
+                command.ExecuteNonQuery();
+                /*
                 using (SqlConnection sqlConnection = new SqlConnection(connectionString))
                 {
                     sqlConnection.Open();
-                        string sqlInfo = "INSERT INTO Empleado" +
-                                        "(Nombre, Salario) VALUES" +
-                                        "(@nombre, @salario);";
-                        using (SqlCommand command = new SqlCommand(sqlInfo, sqlConnection))
-                        {
-                            command.Parameters.AddWithValue("@nombre", info.Nombre);
-                            command.Parameters.AddWithValue("@salario", info.Salario);
+                    /*string sqlInfo = "INSERT INTO Empleado" +
+                                    "(Nombre, Salario) VALUES" +
+                                    "(@nombre, @salario);";
+                    using (SqlCommand command = new SqlCommand(sqlInfo, sqlConnection))
+                    {
+                        command.Parameters.AddWithValue("@nombre", info.Nombre);
+                        command.Parameters.AddWithValue("@salario", info.Salario);
 
-                            command.ExecuteNonQuery();
-                        }
-
-                    
+                        command.ExecuteNonQuery();
+                    }
+                   
                 }
+            */
             }
             catch(Exception ex)
             {

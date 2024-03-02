@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
+using System.Reflection.PortableExecutable;
 
 namespace tarea1.Pages.Empleado
 {
@@ -17,8 +19,9 @@ namespace tarea1.Pages.Empleado
                 using (SqlConnection  sqlConnection = new SqlConnection(connectionString))
                 {
                     sqlConnection.Open();
+                    /*
                     string sqlRead = "SELECT * FROM Empleado";
-   
+                
                     using (SqlCommand command = new SqlCommand(sqlRead, sqlConnection))
                     {
                         using (SqlDataReader reader = command.ExecuteReader())
@@ -35,8 +38,25 @@ namespace tarea1.Pages.Empleado
                             }
                         }
                     }
-                }
+                    */
 
+                    SqlCommand command = new SqlCommand("tablaEmpleado", sqlConnection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                        while (reader.Read())
+                            {
+                            infoEmpleyee info = new infoEmpleyee();
+                            info.id = reader.GetInt32(0);
+                            info.Nombre = reader.GetString(1);
+                            info.Salario = reader.GetDecimal(2);
+
+                            listEmployee.Add(info);
+                            Console.Write(info);
+                            }
+                        }
+                    sqlConnection.Close();
+                }
             }
             catch (Exception ex)
             {

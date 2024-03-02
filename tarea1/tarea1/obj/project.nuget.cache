@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PqDdBLYofMAzOAIzNrL4cZAnfQjuboAJvv4kkIgnSix7H4jtk7yefg0huL8eP6AbQGOY+KsaJLyY5jEzeP3/lw==",
+  "dgSpecHash": "3BnztUP7J8gRqyCHj9pymjlLTvGztIydZJP44DeI2AQSKhTgnqn7RvrjGS28uq6oN5gtr9stxQV37Sf9s/scSA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\duran\\OneDrive\\Escritorio\\SEMESTRE I 2024\\Bases\\tarea1\\tarea1\\tarea1.csproj",
+  "projectFilePath": "C:\\Users\\duran\\OneDrive\\Documents\\GitHub\\Tarea-Bases\\tarea1\\tarea1\\tarea1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\duran\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\duran\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
