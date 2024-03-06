@@ -19,30 +19,12 @@ namespace tarea1.Pages.Empleado
                 using (SqlConnection  sqlConnection = new SqlConnection(connectionString))
                 {
                     sqlConnection.Open();
-                    /*
-                    string sqlRead = "SELECT * FROM Empleado";
-                
-                    using (SqlCommand command = new SqlCommand(sqlRead, sqlConnection))
-                    {
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                infoEmpleyee info = new infoEmpleyee();
-                                info.id = reader.GetInt32(0);
-                                info.Nombre = reader.GetString(1);
-                                info.Salario = reader.GetDecimal(2);
-                                   
-                                listEmployee.Add(info);
-                                Console.Write(info);
-                            }
-                        }
-                    }
-                    */
 
                     using (SqlCommand command = new SqlCommand("tablaEmpleado", sqlConnection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@OutResulTCode", 0);
+                        command.ExecuteNonQuery();
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
                             while (reader.Read())
@@ -56,8 +38,8 @@ namespace tarea1.Pages.Empleado
                                 Console.Write(info);
                             }
                         }
-                        sqlConnection.Close();
                     }
+                    sqlConnection.Close();
                 }
             }
             catch (Exception ex)

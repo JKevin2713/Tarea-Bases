@@ -31,13 +31,7 @@ namespace tarea1.Pages.Empleado
 
             info.Salario = decimal.Parse(Auxsalario);
             info.Nombre = AuxNombre;
-            /*
-            if (info.Nombre.Length == 0 || salario.Length == 0)
-            {
-                message = "Se necesita llenar todos los campos";
-                return;
-            }
-            */
+
             try
             {
                 string connectionString = "Data Source=LAPTOP-K8CP12F2;Initial Catalog=tarea1" +
@@ -53,29 +47,12 @@ namespace tarea1.Pages.Empleado
 
                         command.Parameters.AddWithValue("@nombre", info.Nombre);
                         command.Parameters.AddWithValue("@salario", info.Salario);
+                        command.Parameters.AddWithValue("@OutResulTCode", 0);
 
                         command.ExecuteNonQuery();
                     }
                     sqlConnection.Close();
                 }
-
-                /*
-                using (SqlConnection sqlConnection = new SqlConnection(connectionString))
-                {
-                    sqlConnection.Open();
-                    /*string sqlInfo = "INSERT INTO Empleado" +
-                                    "(Nombre, Salario) VALUES" +
-                                    "(@nombre, @salario);";
-                    using (SqlCommand command = new SqlCommand(sqlInfo, sqlConnection))
-                    {
-                        command.Parameters.AddWithValue("@nombre", info.Nombre);
-                        command.Parameters.AddWithValue("@salario", info.Salario);
-
-                        command.ExecuteNonQuery();
-                    }
-                   
-                }
-            */
             }
             catch(Exception ex)
             {
