@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.Eventing.Reader;
+using System.Text.RegularExpressions;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace tarea1.Pages.Empleado
@@ -18,27 +20,45 @@ namespace tarea1.Pages.Empleado
 
         public void OnPost()
         {
-            info.Nombre = Request.Form["nombre"];
-            string salario = Request.Form["salario"];
-            info.Salario = decimal.Parse(salario);
+            string AuxNombre = Request.Form["nombre"];
+            string Auxsalario = Request.Form["salario"];
 
-            if(info.Nombre.Length == 0 || salario.Length == 0)
+            if(ValidarNomSal(AuxNombre, Auxsalario) == false)
+            {
+                message = "Error en los datos, revise los datos ingresados";
+                return;
+            }
+
+            info.Salario = decimal.Parse(Auxsalario);
+            info.Nombre = AuxNombre;
+            /*
+            if (info.Nombre.Length == 0 || salario.Length == 0)
             {
                 message = "Se necesita llenar todos los campos";
                 return;
             }
+            */
             try
             {
                 string connectionString = "Data Source=LAPTOP-K8CP12F2;Initial Catalog=tarea1" +
                                           ";Integrated Security=True;Encrypt=False";
+           
+                using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+                {
+                    sqlConnection.Open();
 
-                SqlConnection sqlConnection = new SqlConnection(connectionString);
-                sqlConnection.Open();
-                SqlCommand command = new SqlCommand("registroEmpleado", sqlConnection);
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@nombre", info.Nombre);
-                command.Parameters.AddWithValue("@salario", info.Salario);
-                command.ExecuteNonQuery();
+                    using(SqlCommand command = new SqlCommand("registroEmpleado", sqlConnection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue("@nombre", info.Nombre);
+                        command.Parameters.AddWithValue("@salario", info.Salario);
+
+                        command.ExecuteNonQuery();
+                    }
+                    sqlConnection.Close();
+                }
+
                 /*
                 using (SqlConnection sqlConnection = new SqlConnection(connectionString))
                 {
@@ -62,16 +82,35 @@ namespace tarea1.Pages.Empleado
                 message = ex.Message;
                 return;
             }
-
-
-
             flag = true;
             info.Nombre = "";
-            info.Salario = 0;
-            salario = "";
+            //info.Salario = 0;
+            //salario = "";
             message = "Se a creado correctamente el empleado";
 
             Response.Redirect("/Empleado/Index");
         }
+
+       public bool ValidarNomSal(string nombre, string salario)
+       {
+            if (nombre.Length != 0 || salario.Length != 0)
+            {
+                if(Regex.IsMatch(nombre, @"^[a-zA-Z\s]+$") && Regex.IsMatch(salario, @"^[0-9]+$"))
+                {
+                    decimal AuxSalario = decimal.Parse(salario);
+                    if (AuxSalario > 0)
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+                return false;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
+

@@ -40,22 +40,24 @@ namespace tarea1.Pages.Empleado
                     }
                     */
 
-                    SqlCommand command = new SqlCommand("tablaEmpleado", sqlConnection);
-                    command.CommandType = CommandType.StoredProcedure;
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    using (SqlCommand command = new SqlCommand("tablaEmpleado", sqlConnection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                        while (reader.Read())
+                            while (reader.Read())
                             {
-                            infoEmpleyee info = new infoEmpleyee();
-                            info.id = reader.GetInt32(0);
-                            info.Nombre = reader.GetString(1);
-                            info.Salario = reader.GetDecimal(2);
+                                infoEmpleyee info = new infoEmpleyee();
+                                info.id = reader.GetInt32(0);
+                                info.Nombre = reader.GetString(1);
+                                info.Salario = reader.GetDecimal(2);
 
-                            listEmployee.Add(info);
-                            Console.Write(info);
+                                listEmployee.Add(info);
+                                Console.Write(info);
                             }
                         }
-                    sqlConnection.Close();
+                        sqlConnection.Close();
+                    }
                 }
             }
             catch (Exception ex)
