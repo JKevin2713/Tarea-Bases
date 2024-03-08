@@ -1,55 +1,60 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Diagnostics.CodeAnalysis;
-using System.Diagnostics.Eventing.Reader;
 using System.Text.RegularExpressions;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace tarea1.Pages.Empleado
 {
     public class CreateModel : PageModel
     {
+        // Objeto para almacenar la información del nuevo empleado
         public infoEmpleyee info = new infoEmpleyee();
-        public string message = "";
-        public bool flag = false;
-        public void OnGet()
-        {
-        }
 
+        // Mensaje de retroalimentación para el usuario
+        public string message = "";
+
+        // Bandera para indicar si se creó correctamente el empleado
+        public bool flag = false;
+
+        // Método ejecutado al recibir una solicitud POST
         public void OnPost()
         {
             string auxNombre = Request.Form["nombre"];
             string auxSalario = Request.Form["salario"];
             int resultCode = 0;
 
-            if(ValidarNomSal(auxNombre, auxSalario) == false)
+            // Validar los datos ingresados
+            if (ValidarNomSal(auxNombre, auxSalario) == false)
             {
                 message = "Error en los datos, revise los datos ingresados";
                 return;
             }
-
+            // Asignar los valores validados al objeto infoEmpleyee
             info.Salario = decimal.Parse(auxSalario);
             info.Nombre = auxNombre;
 
             try
             {
+                // Cadena de conexión a la base de datos
                 string connectionString = "server=tarea1.database.windows.net;user=Kevin;" +
                                           "database=PruebasTarea;password=Jk123456";
-           
+
+                // Establecer una conexión con la base de datos utilizando la cadena de conexión
                 using (SqlConnection sqlConnection = new SqlConnection(connectionString))
                 {
-                    sqlConnection.Open();
+                    // Especificar que el comando es un procedimiento almacenado
+                    sqlConnection.Open(); // Abrir la conexión
 
-                    using(SqlCommand command = new SqlCommand("registroEmpleado", sqlConnection))
+                    // Crear un comando SQL para llamar al procedimiento almacenado "registroEmpleado"
+                    using (SqlCommand command = new SqlCommand("registroEmpleado", sqlConnection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        // Parámetro de entrada
+                        // Parámetros de entrada
                         command.Parameters.AddWithValue("@nombre", info.Nombre);
                         command.Parameters.AddWithValue("@salario", info.Salario);
-                        
 
                         // Parámetro de salida
                         command.Parameters.Add("@OutResulTCode", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -59,16 +64,19 @@ namespace tarea1.Pages.Empleado
                         resultCode = Convert.ToInt32(command.Parameters["@OutResulTCode"].Value);
                         Console.WriteLine("Código de resultado: " + resultCode);
                     }
+                    // Cerrar la conexión después de haber terminado de trabajar con ella
                     sqlConnection.Close();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
+                // Manejar cualquier excepción que pueda ocurrir e imprimir el mensaje de error
                 message = ex.Message;
                 return;
             }
 
-            if(resultCode == 50006)
+            // Evaluar el resultado del procedimiento almacenado
+            if (resultCode == 50006)
             {
                 message = "Error, el empleado que desea agregar ya existe";
             }
@@ -77,35 +85,26 @@ namespace tarea1.Pages.Empleado
                 flag = true;
                 message = "Se a creado correctamente el empleado";
             }
-            /*
-            flag = true;
-            info.Nombre = "";
-            info.Salario = 0;
-            salario = "";
-            message = "Se a creado correctamente el empleado";
-            Response.Redirect("/Empleado/Index");
-            */
         }
 
-       public bool ValidarNomSal(string nombre, string salario)
-       {
+        // Método para validar el nombre y salario ingresados
+        public bool ValidarNomSal(string nombre, string salario)
+        {
+            // Verificar que ambos campos no estén vacíos
             if (nombre.Length != 0 || salario.Length != 0)
             {
-                if(Regex.IsMatch(nombre, @"^[a-zA-Z\s]+$") && Regex.IsMatch(salario, @"^[0-9]+$"))
+                // Utilizar expresiones regulares para verificar el formato del nombre y salario
+                if (Regex.IsMatch(nombre, @"^[a-zA-Z\s]+$") && Regex.IsMatch(salario, @"^[0-9]+$"))
                 {
+                    // Convertir el salario a decimal y verificar que sea mayor que cero
                     decimal AuxSalario = decimal.Parse(salario);
                     if (AuxSalario > 0)
                     {
                         return true;
                     }
-                    return false;
                 }
-                return false;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
     }
 }
