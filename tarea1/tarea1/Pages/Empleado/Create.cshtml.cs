@@ -22,6 +22,7 @@ namespace tarea1.Pages.Empleado
         {
             string AuxNombre = Request.Form["nombre"];
             string Auxsalario = Request.Form["salario"];
+            int resultCode = 0;
 
             if(ValidarNomSal(AuxNombre, Auxsalario) == false)
             {
@@ -34,8 +35,8 @@ namespace tarea1.Pages.Empleado
 
             try
             {
-                string connectionString = "Data Source=LAPTOP-K8CP12F2;Initial Catalog=tarea1" +
-                                          ";Integrated Security=True;Encrypt=False";
+                string connectionString = "server=tarea1.database.windows.net;user=Kevin;" +
+                                          "database=PruebasTarea;password=Jk123456";
            
                 using (SqlConnection sqlConnection = new SqlConnection(connectionString))
                 {
@@ -45,11 +46,18 @@ namespace tarea1.Pages.Empleado
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
+                        // Parámetro de entrada
                         command.Parameters.AddWithValue("@nombre", info.Nombre);
                         command.Parameters.AddWithValue("@salario", info.Salario);
-                        command.Parameters.AddWithValue("@OutResulTCode", 0);
+                        
 
+                        // Parámetro de salida
+                        command.Parameters.Add("@OutResulTCode", SqlDbType.Int).Direction = ParameterDirection.Output;
                         command.ExecuteNonQuery();
+
+                        // Obtener el valor del parámetro de salida
+                        resultCode = Convert.ToInt32(command.Parameters["@OutResulTCode"].Value);
+                        Console.WriteLine("Código de resultado: " + resultCode);
                     }
                     sqlConnection.Close();
                 }
@@ -59,13 +67,24 @@ namespace tarea1.Pages.Empleado
                 message = ex.Message;
                 return;
             }
+
+            if(resultCode == 50006)
+            {
+                message = "Error, el empleado que desea agregar ya existe";
+            }
+            else
+            {
+                flag = true;
+                message = "Se a creado correctamente el empleado";
+            }
+            /*
             flag = true;
             info.Nombre = "";
-            //info.Salario = 0;
-            //salario = "";
+            info.Salario = 0;
+            salario = "";
             message = "Se a creado correctamente el empleado";
-
             Response.Redirect("/Empleado/Index");
+            */
         }
 
        public bool ValidarNomSal(string nombre, string salario)

@@ -14,7 +14,8 @@ namespace tarea1.Pages.Empleado
         {
             try
             {
-                string connectionString = "Data Source=LAPTOP-K8CP12F2;Initial Catalog=tarea1;Integrated Security=True;Encrypt=False";
+                string connectionString = "server=tarea1.database.windows.net;user=Kevin" +
+                                          ";database=PruebasTarea;password=Jk123456";
 
                 using (SqlConnection  sqlConnection = new SqlConnection(connectionString))
                 {
@@ -23,7 +24,7 @@ namespace tarea1.Pages.Empleado
                     using (SqlCommand command = new SqlCommand("tablaEmpleado", sqlConnection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue("@OutResulTCode", 0);
+                        command.Parameters.Add("@OutResulTCode", SqlDbType.Int).Direction = ParameterDirection.Output;
                         command.ExecuteNonQuery();
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
