@@ -20,18 +20,18 @@ namespace tarea1.Pages.Empleado
 
         public void OnPost()
         {
-            string AuxNombre = Request.Form["nombre"];
-            string Auxsalario = Request.Form["salario"];
+            string auxNombre = Request.Form["nombre"];
+            string auxSalario = Request.Form["salario"];
             int resultCode = 0;
 
-            if(ValidarNomSal(AuxNombre, Auxsalario) == false)
+            if(ValidarNomSal(auxNombre, auxSalario) == false)
             {
                 message = "Error en los datos, revise los datos ingresados";
                 return;
             }
 
-            info.Salario = decimal.Parse(Auxsalario);
-            info.Nombre = AuxNombre;
+            info.Salario = decimal.Parse(auxSalario);
+            info.Nombre = auxNombre;
 
             try
             {
