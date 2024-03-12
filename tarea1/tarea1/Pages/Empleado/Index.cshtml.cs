@@ -19,9 +19,10 @@ namespace tarea1.Pages.Empleado
         {
             try
             {
+      
                 // Cadena de conexión a la base de datos
-                string connectionString = "server=tarea1.database.windows.net;user=Kevin" +
-                                          ";database=PruebasTarea;password=Jk123456";
+                string connectionString = "server=tarea1.database.windows.net;user=Kevin;" +
+                                          "database=TareaBases;password=Jk123456";
 
                 // Establecer una conexión con la base de datos utilizando la cadena de conexión
                 using (SqlConnection sqlConnection = new SqlConnection(connectionString))
